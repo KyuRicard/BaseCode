@@ -31,6 +31,7 @@ void LivingEntity::Accelerate(int aX, int aY)
 	velocity.X += (aX * acceleration.X);
 	velocity.Y += (aY * acceleration.Y);
 
+	
 	if (velocity.X > 0)
 		velocity.X = fmin(velocity.X, maxVel.X);
 	else if (velocity.X < 0)
@@ -48,7 +49,7 @@ void LivingEntity::Accelerate(int aX, int aY)
 	}
 
 	position.X += velocity.X;
-
+		
 	if (position.Y + velocity.Y + this->GetHeight() >= Tools::GetHeight())	
 		position.Y = (float)(Tools::GetHeight() - this->GetHeight());
 	else

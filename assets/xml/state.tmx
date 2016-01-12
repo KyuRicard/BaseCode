@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="90" height="90" tilewidth="128" tileheight="128" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="90" height="90" tilewidth="32" tileheight="32" nextobjectid="4">
  <tileset firstgid="1" name="Terrain" tilewidth="32" tileheight="32">
   <image source="Outside_A5.png" trans="000000" width="256" height="512"/>
  </tileset>
+ <tileset firstgid="129" name="Actor3" tilewidth="32" tileheight="32">
+  <image source="../img/Actor3.png" trans="000000" width="384" height="256"/>
+ </tileset>
  <layer name="Tile Layer 1" width="90" height="90">
-  <data encoding="base64" compression="zlib">eJzt0EENwDAMALEMQvmTLYVJ+VQnP0zAZ2bOwscvm2PPnl/j2XOJZ88lnj2XePZc4tlziWfPJZ49l3j2XOLZc4lnzyWePZd49lzi2XOJZ88lnj2XePZc4tlziWfPJZ49l3j2XOLZc4lnzyWePZd49lzi2XOJZ88lnj2XePZc4tlziWfPJZ49l3j2XOLZc4lnzyWePZd49lzi2XOJZ88lnj2XePZcsn0GAOANF2iUmgU=</data>
+  <data encoding="base64" compression="zlib">
+   eJzt0bENwzAMAEF5BO2/bPpUCRJb8vsIfE3iOMcYh05vbnDDE+LMuRRnzqU4cy7FmXMpzpxLceZcijPnUpw5l+LMuRRnzqU4cy7FmXMpzpxLceZcijPnUpw5l+LMuRRnzqU4cy7FmXMpzpxLceZcijPnUpw5l+LMuRRnzqU4cy7FmXMpzpxLceZcijPnUpw5l+LMuRRnzqU4cy7FmXMpzpxLceZcijPnUpw5l+LMudSdnL+d1ffexflXt53sd3Q+02SV+Q7O73Pl3rLzv+fTXSt/PHVJL2W2Kps=
+  </data>
  </layer>
+ <objectgroup name="Objectes">
+  <object id="3" name="Player" type="Player" gid="189" x="36" y="2848"/>
+ </objectgroup>
 </map>

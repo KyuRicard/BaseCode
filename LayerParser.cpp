@@ -1,5 +1,6 @@
 #include "LayerParser.h"
 #include "Loaders.h"
+#include "Tools.h"
 
 using namespace std;
 using namespace tinyxml2;
@@ -8,7 +9,7 @@ LayerParser * LayerParser::instance = 0;
 
 void LayerParser::ParseTileset(XMLElement * element, Tileset * tileset)
 {
-	tileset->firstGridID = element->IntAttribute("firstgrid");
+	tileset->firstGridID = element->IntAttribute("firstgid");
 	tileset->margin = element->IntAttribute("margin");
 	tileset->name = element->Attribute("name");
 	tileset->spacing = element->IntAttribute("spacing");
@@ -54,6 +55,7 @@ TileLayer * LayerParser::ParseTileLayer(string file)
 vector<vector<int>> LayerParser::ParseData(string data, int width, int height)
 {
 	vector<vector<int>> layer;
+	data = Tools::Clear(data);
 	string text = base64_decode(data);
 
 	uLongf size = width * height * sizeof(int);

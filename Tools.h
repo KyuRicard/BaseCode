@@ -14,4 +14,5 @@ namespace Tools
 	int GetHeight();
 	Vector2D CalcPosFromImage(int, int);
 	int Decomp(int, int, int);
+	string Clear(string str);
 }

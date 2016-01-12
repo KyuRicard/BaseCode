@@ -1,8 +1,6 @@
-Plataformes 2D.opensdf
-Plataformes 2D.sdf
+./Plataformes 2D.sdf
 1helloworld.vcxproj.filters
 1helloworld.vcxproj.user
-.vs/
-Debug/
-Release/
-*.sdf
+.vs/*
+Debug/*
+Release/*

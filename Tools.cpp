@@ -10,6 +10,18 @@ using namespace std;
 
 double lastFrame = Tools::GetTime();
 
+string Tools::Clear(string str)
+{
+	string tmp;
+	for each (char c in str)
+	{
+		if (c == ' ' || c == '\n')
+			continue;
+		tmp += c;
+	}
+	return tmp;
+}
+
 void Tools::takeScreenShot(int width, int height)
 {
 	chrono::time_point<std::chrono::system_clock> now = chrono::system_clock::now();

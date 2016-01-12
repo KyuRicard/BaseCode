@@ -9,9 +9,11 @@ Player::~Player()
 
 Player::Player() : LivingEntity()
 {
-	position.X = 500;
+	position.X = 0;
 	maxVel = Vector2D(10, 100);
 	acceleration = Vector2D(1, 1);
+	if (TheGame->DEBUG)
+		friction = Vector2D(0, 0);
 }
 
 void Player::Update()
@@ -31,24 +33,4 @@ void Player::Jump()
 	{
 		velocity.Y = salt;
 	}
-}
-
-void Player::DrawFrame()
-{
-	SDL_Rect img, draw;
-
-	img.x = params->GetWidth() * params->GetFrame();
-	img.y = params->GetHeight() * params->GetRow();
-	img.w = params->GetWidth();
-	img.h = params->GetHeight();
-
-	draw.x = Tools::GetWidth() / 2;
-	draw.y = (Tools::GetHeight() - params->GetHeight()) / 2;
-	draw.w = params->GetWidth();
-	draw.h = params->GetHeight();
-
-	SDL_RendererFlip flip = params->IsFlipped() ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE;
-
-	SDL_Texture * textura = TextureManager::GetInstance()->GetArray()[params->GetId()];
-	SDL_RenderCopyEx(Game::GetInstance()->GetRenderer(), textura, &img, &draw, 0, NULL, flip);
 }

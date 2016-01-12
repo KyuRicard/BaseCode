@@ -25,5 +25,4 @@ public:
 	void Update(Player *);
 	static Entity * Create() { return new Enemy(STATIC_ENEMY); }
 	void SetType(int type) { this->type = type; }
-	void DrawFrame();
 };

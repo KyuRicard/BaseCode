@@ -62,6 +62,9 @@ void StateGame::HandleEvents()
 			{
 				player->Jump();
 			}
+			else if (key.first == SDL_SCANCODE_LSHIFT) {
+				player->yAccel = NEGATIVE;
+			}
 		}
 		else if (key.second == UP)
 		{
@@ -83,6 +86,7 @@ bool StateGame::OnEnter()
 			player = pl;
 		}
 	}
+	SDL_SetRenderDrawColor(TheGame->GetRenderer(), 0x00, 0x90, 0xFF, 0xFF);
 	layer = Layerer->ParseTileLayer("assets/xml/state.tmx");
 	return true;
 }
@@ -95,6 +99,7 @@ bool StateGame::OnExit()
 	}
 	entitats.clear();
 	textures.clear();
+	SDL_SetRenderDrawColor(TheGame->GetRenderer(), 0x00, 0x00, 0x00, 0xFF);
 	return true;
 }
 

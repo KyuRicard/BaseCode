@@ -18,38 +18,40 @@ TileLayer::~TileLayer()
 
 void TileLayer::Update(Player * player)
 {
-	position.X = player->position.X;
-	position.Y = Tools::GetHeight() - player->position.Y;
+	position.X = 0;
+	position.Y = 0;
 }
 
 void TileLayer::Render()
 {
-	int firstX = position.X / tileWidth;
-	int firstY = position.Y / tileHeight;
-	int lastX = (int)position.X % tileWidth;
-	int lastY = (int)position.Y % tileHeight;
 	Vector2D scr((float)Tools::GetWidth(), (float)Tools::GetHeight());
 	for (int row = 0; row < width; row++) 
 	{
 		for (int tile = 0; tile < height; tile++)
-		{
-			if (tile + firstX < 0 || tile + firstX >= (int)tileIDs.size())
+		{		
+			int current = tileIDs[tile][row];
+			if (current == 1 || current == 0)
 				continue;
+
+			
 			int x1 = (row * tileWidth) - (position.X / tileWidth);
 			int x2 = x1 + tileWidth;
-			int y1 = Tools::GetHeight() - (tile * tileHeight) - (position.Y / tileHeight);
-			int y2 = y1 - tileHeight;
+			int y1 = Tools::GetHeight() - (90 - tile) * tileHeight;
+			int y2 = y1 + tileHeight;
+
+			// si tile = height, y2 = Tools::GetHeight(), x tant:
+			// si tile = 0, y2 = Tools::GetHeight() - 90 * tileHeight
+			// x tant, y2 = Tools::GetHeight() - (90 - tile) * tileHeight
+
 
 			if (y1 < 0 && y2 < 0)
-				break;
+				continue;
 			if (x1 < 0 && x2 < 0 || x1 > Tools::GetWidth() && x1 > Tools::GetWidth())
 				continue;
-			int current = tileIDs[row][tile + firstX];
-			if (current == 1)
-				continue;
+			
 			Tileset * ts = GetTileset(current);
 			current--;
-			Draw(ts->name, ts, x1 - position.X, y2 + position.Y, 
+			Draw(ts->name, ts, x1 - position.X, y1 - position.Y, 
 				(current - (ts->firstGridID - 1)) / ts->numColumns,
 				(current - (ts->firstGridID - 1)) % ts->numColumns);
 		}
@@ -79,7 +81,7 @@ void TileLayer::Draw(string id, Tileset * ts, int x, int y, int row, int frame)
 	//source = IMATGE; draw = PANTALLA;
 	SDL_Rect source, draw;
 	
-	source.x = ts->margin + (ts->spacing + ts->tileWidth) * (frame - 1);
+	source.x = ts->margin + (ts->spacing + ts->tileWidth) * (frame);
 	source.y = ts->margin + (ts->spacing + ts->tileHeight) * row;
 	source.w = ts->tileWidth;
 	source.h = ts->tileHeight;

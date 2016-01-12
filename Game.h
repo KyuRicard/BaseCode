@@ -31,7 +31,7 @@ public:
 	double delta;
 	void ToggleFullscreen();
 	void TakeScreenshot() { takeScreenshot = true; }
-	
+	bool DEBUG = false;
 	static Game * GetInstance() 
 	{
 		if (joc == 0)
