@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="left-down" width="90" height="90" tilewidth="32" tileheight="32" nextobjectid="6">
- <tileset firstgid="1" name="Terrain" tilewidth="32" tileheight="32" tilecount="128" columns="8">
+ <tileset firstgid="1" name="Terrain" tilewidth="32" tileheight="32">
   <image source="../img/Outside_A5.png" trans="000000" width="256" height="512"/>
  </tileset>
- <tileset firstgid="129" name="Actor3" tilewidth="32" tileheight="32" tilecount="96" columns="12">
+ <tileset firstgid="129" name="Actor3" tilewidth="32" tileheight="32">
   <image source="../img/Actor3.png" trans="000000" width="384" height="256"/>
  </tileset>
- <tileset firstgid="225" name="Monster1" tilewidth="32" tileheight="32" tilecount="96" columns="12">
+ <tileset firstgid="225" name="Monster1" tilewidth="32" tileheight="32">
   <image source="../img/Monster1.png" width="384" height="256"/>
  </tileset>
  <layer name="BG" width="90" height="90">
@@ -14,7 +14,7 @@
    <property name="HasCollision" value="0"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt0EEKABAURVHbxGJsnfHPhELqnLrz10sJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICb8qhMqi9HfSp+6cN9vgRWtRBndE2zB/c=
+   eJzt0LEJAEAIBEFbsGJbNzfXh2cGNj8uAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADupCRJ0nLT6z2/ViNf79RsATE0
   </data>
  </layer>
  <objectgroup draworder="index" name="Objectes">
@@ -35,7 +35,7 @@
    <property name="HasCollision" value="1"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt0EkOQFAQRVHbxQgL+FvHDNGGlO6c5I1qUrlZBgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADxZuvuBn9A5hs4xdI6hc4wznfNuxczKC/76mq3O05bDhlW3embN9W++Xt/5SMtm5ab1sr7zkZZ7O2s9lixsLXtkSgU=
+   eJzt1EEKgCAQBdDW3dY8QFcvF4EMIhUYJO/BrBwVv+KyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI6yhZpTO2hqVB+w1e54xy9wZe5tzCnPqtWbyJMsvcq7N9HbLOfeqYpZ3x1o9V1/vLno5F/HP+OvfcQCD3B9u
   </data>
  </layer>
 </map>

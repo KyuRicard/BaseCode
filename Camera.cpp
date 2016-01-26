@@ -34,6 +34,6 @@ const Vector2D * Camera::GetPosition()
 	}
 	else 
 	{
-		return &(const Vector2D)posicio;
+		return Vector2D::NULL_VECTOR;
 	}
 }

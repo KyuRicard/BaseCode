@@ -85,10 +85,7 @@ void StateGame::Render()
 	level->Render();
 	for each (LivingEntity * var in entitats)
 	{
-		if (var->HaveAnimation())
-			var->DrawFrame();
-		else
-			var->Draw();
+		var->DrawFrame();
 	}
 	live1->Draw();
 	live2->Draw();
@@ -136,7 +133,11 @@ bool StateGame::OnEnter()
 {
 	Audio->LoadMusic("darude");
 	Audio->PlayMusic("darude");
-	level = LevelParser::ParseLevel("assets/xml/state.tmx");
+	stringstream ss;
+	ss << "assets/xml/state" << TheGame->GetLevel() << ".tmx";
+	string route;
+	ss >> route;
+	level = LevelParser::ParseLevel(route);
 	SDL_SetRenderDrawColor(TheGame->GetRenderer(), 0x00, 0x90, 0xFF, 0xFF);
 	
 	for each (Layer * layer in *level->getLayers()) {
@@ -152,7 +153,7 @@ bool StateGame::OnEnter()
 		entity->LoadCollisionLayers(colLayers);
 	}
 	TheCam->SetTarget(player);
-	TheCam->SetMaxPosition(90 * 32);
+	TheCam->SetMaxPosition(level->getCollidableTileLayers()->at(0)->width * 32);
 	TheCam->SetPosition(Vector2D::NULL_VECTOR);
 
 	Manager->Load("hearth.png", "live");
@@ -160,11 +161,11 @@ bool StateGame::OnEnter()
 	Manager->Load("glowing.png", "glowing");
 	
 	live1 = new InertEntity();
-	live1->Load(new EntityParams("live1", Tools::GetWidth() - (32 * 3.2), 15, 32, 32));
+	live1->Load(new EntityParams("live1", Tools::GetWidth() - (int)(32 * 3.2), 15, 32, 32));
 	live1->texture = "live";
 
 	live2 = new InertEntity();
-	live2->Load(new EntityParams("live2", Tools::GetWidth() - (32 * 2.1), 15, 32, 32));
+	live2->Load(new EntityParams("live2", Tools::GetWidth() - (int)(32 * 2.1), 15, 32, 32));
 	live2->texture = "live";
 
 	live3 = new InertEntity();
@@ -231,7 +232,7 @@ bool StateMenu::OnEnter()
 	for each (Button * var in entitats)
 	{
 		var->SetOnClickListener(callbacks.at(var->CallbackID));
-		var->params->SetXPos((Tools::GetWidth() / 2) - (var->params->GetWidth() / 2));
+		var->params->SetXPos((float)((Tools::GetWidth() / 2) - (var->params->GetWidth() / 2)));
 	}
 
 	Audio->LoadMusic("mainmenu");

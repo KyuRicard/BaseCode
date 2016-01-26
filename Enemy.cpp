@@ -32,27 +32,6 @@ void Enemy::BeStatic(Player * player)
 	
 }
 
-void Enemy::TheIgnored()
-{		
-	if (position.X < 0)
-	{
-		params->SetFlipped(false);
-	}
-	else if (position.X > Tools::GetWidth() - GetWidth())
-	{
-		params->SetFlipped(true);
-	}
-	if (params->IsFlipped())
-	{
-		xAccel = NEGATIVE;
-	}
-	else
-	{
-		xAccel = POSITIVE;
-	}
-	
-}
-
 void Enemy::MoveALittle()
 {	
 	srand((int)time(NULL));
@@ -75,7 +54,7 @@ Enemy::Enemy(int type)
 {
 	this->type = type;
 	maxVel = Vector2D(7.5, 10);
-	acceleration = Vector2D(0.75, 1);
+	acceleration = Vector2D(0.75, 1);	
 }
 
 
@@ -85,23 +64,35 @@ Enemy::~Enemy()
 
 void Enemy::Update(Player * player)
 {
+	if (invulnerable > 0)
+		invulnerable--;
+	playerPos = player->position;	
+	Accelerate(xAccel, yAccel);	
+}
+
+void Enemy::SetType(int type)
+{
+	this->type = type;
 	switch (type)
 	{
-	case STATIC_ENEMY:
-		BeStatic(player);
-		break;
-	case FOLLOWER_ENEMY:
-		FollowPlayer(player);
-		break;
 	case IGNORE_ENEMY:
-		TheIgnored();
-		break;
-	case LITTLE_MOVEMENT: 
-		MoveALittle();
-		break;
-	default:
-		break;
+		setOnCollide(([](Entity * base, Entity * second)
+		{
+			if (second == NULL) {
+				Enemy * enemy = dynamic_cast<Enemy *>(base);
+				if (enemy->invulnerable > 0)
+					return;
+				enemy->params->Flip();
+				if (enemy->params->IsFlipped())
+				{
+					enemy->xAccel = NEGATIVE;
+				}
+				else {
+					enemy->xAccel = POSITIVE;
+				}
+				enemy->invulnerable = 30;
+			}			
+		}));
+		xAccel = NEGATIVE;
 	}
-	playerPos = player->position;
-	Accelerate(xAccel, yAccel);
 }

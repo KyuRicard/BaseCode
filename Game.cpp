@@ -3,6 +3,7 @@
 #include "EntityFactory.h"
 #include "AllEntities.hpp"
 #include "AudioManager.h"
+#include "Metaflag.h"
 
 Game * Game::joc = 0;
 
@@ -68,6 +69,7 @@ bool Game::Init(const char * title, int xpos, int ypos, int width, int height, b
 	EntityCreator->Register("Inert", &InertEntity::Create);
 	EntityCreator->Register("Player", &Player::Create);
 	EntityCreator->Register("Enemy", &Enemy::Create);
+	EntityCreator->Register("Metaflag", &Metaflag::Create);
 
 	manager = new StateManager(new StateIntro());
 	

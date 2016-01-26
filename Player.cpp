@@ -15,18 +15,31 @@ Player::Player() : LivingEntity()
 	acceleration = Vector2D(1, 1);	
 	SetJump(-15);
 	lives = 3;
-	setOnCollide(([](LivingEntity * le) {
-		Player * p = (Player *)le;
-		if (p->invulnerable == 0)
+	setOnCollide(([](Entity * player, Entity * another) {
+		Player * p = (Player *)player;
+		if (another == NULL) {
+			return;
+		}
+		if (Enemy * enemy = dynamic_cast<Enemy *>(another))
 		{
-			p->lives--;
-			if (p->lives == -1)
+			if (p->invulnerable == 0)
 			{
-				Audio->PlaySound("nazgul");
-				TheGame->GameOver();
+				p->lives--;
+				if (p->lives == 0)
+				{
+					Audio->PlaySound("nazgul");
+					TheGame->GameOver();
+				}
+				p->invulnerable = 120;
+				p->Jump();
+				another->onCollide(p);
 			}
-			p->invulnerable = 120;
-			p->Jump();
+		}
+		else if (Player * pl = dynamic_cast<Player *>(another)) {
+			return;
+		}
+		else {
+			another->onCollide(p);
 		}
 	}));
 }
@@ -41,6 +54,10 @@ void Player::Update()
 	if (invulnerable > 0)
 	{
 		invulnerable--;
+	}
+	if (position.Y > Tools::GetHeight())
+	{
+		onVoid();
 	}
 	Accelerate(xAccel, yAccel);	
 	LivingEntity::Update();	
@@ -66,8 +83,8 @@ void Player::DrawFrame()
 	img.w = params->GetWidth();
 	img.h = params->GetHeight();
 
-	draw.x = position.X - TheCam->GetPosition()->X;
-	draw.y = position.Y;
+	draw.x = (int)position.X - (int)TheCam->GetPosition()->X;
+	draw.y = (int)position.Y;
 	draw.w = params->GetWidth();
 	draw.h = params->GetHeight();
 
@@ -75,4 +92,17 @@ void Player::DrawFrame()
 
 	SDL_Texture * textura = TextureManager::GetInstance()->GetArray()[texture];
 	SDL_RenderCopyEx(Game::GetInstance()->GetRenderer(), textura, &img, &draw, 0, NULL, flip);
+}
+
+void Player::onVoid()
+{
+	if (invulnerable > 0)
+		return;
+	lives--;
+	if (lives == -1)
+	{
+		Audio->PlaySound("nazgul");
+		TheGame->GameOver();
+	}
+	invulnerable = 15;
 }

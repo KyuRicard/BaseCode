@@ -12,4 +12,8 @@ public:
 	virtual void Render() = 0;
 	virtual void Update() = 0;
 	Tileset * GetTileset(int);
+	std::vector<Tileset> GetTilesets()
+	{
+		return tilesets;
+	}
 };

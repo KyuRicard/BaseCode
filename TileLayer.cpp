@@ -26,22 +26,24 @@ void TileLayer::Update()
 void TileLayer::Render()
 {
 	Vector2D scr((float)Tools::GetWidth(), (float)Tools::GetHeight());
-	int firstRow = TheCam->GetPosition()->X / tileWidth;
-	int lastRow = (TheCam->GetPosition()->X + Tools::GetWidth()) / tileWidth;
+	int firstRow = (int)TheCam->GetPosition()->X / tileWidth;
+	int lastRow = (int)(TheCam->GetPosition()->X + Tools::GetWidth()) / tileWidth;
+	int firstCell = Tools::ToCell((int)TheCam->GetPosition()->Y, this);
+	int lastCell = Tools::ToCell((int)(TheCam->GetPosition()->Y + Tools::GetHeight()), this);
 	lastRow++;
 	for (int row = firstRow; row < lastRow; row++) 
 	{
-		for (int tile = 0; tile < height; tile++)
+		for (int tile = firstCell; tile < lastCell; tile++)
 		{		
-			if (row >= tileIDs.size())
+			if ((unsigned int)row >= tileIDs[tile].size())
 				continue;
 			int current = tileIDs[tile][row];
-			if (current == 1 || current == 0)
+			if (current == 0)
 				continue;
 			
 			int x1 = (row * tileWidth);
 			int x2 = x1 + tileWidth;
-			int y1 = Tools::GetHeight() - (90 - tile) * tileHeight;
+			int y1 = Tools::GetHeight() - (height - tile) * tileHeight;
 			int y2 = y1 + tileHeight;
 
 			if (y1 < 0 && y2 < 0)

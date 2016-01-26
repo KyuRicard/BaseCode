@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="30" height="30" tilewidth="32" tileheight="32" nextobjectid="3">
+ <tileset firstgid="1" name="Characters" tilewidth="32" tileheight="32">
+  <image source="../img/Characters.png" width="96" height="224"/>
+ </tileset>
+ <tileset firstgid="22" name="Outside_A5" tilewidth="32" tileheight="32">
+  <image source="../img/Outside_A5.png" width="256" height="512"/>
+ </tileset>
+ <layer name="BG" width="30" height="30">
+  <properties>
+   <property name="HasCollision" value="0"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztw8EJAAAIBKAbumfDN0YUCiYAAHxQS1s9ewBDX4HZ
+  </data>
+ </layer>
+ <layer name="Collision" width="30" height="30">
+  <properties>
+   <property name="HasCollision" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJwTY8APxAjIkwvEiMCjYBSMglEwCkgDulA8EHbSy250+wjZS6q7yPEHuh5Sw4ScMCRkJ7HhQmnc0Tv+R8EoIAeEI+HhCKjpP2xmhDNQ3w5sWB4Nk2svLrXEmkGJvbgwLe2lFAAAP0YV6A==
+  </data>
+ </layer>
+ <layer name="FG" width="30" height="30">
+  <properties>
+   <property name="HasCollision" value="0"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztzTERAAAIA7EaxL8dFhYMdEruuvYTAICuubU/dHV1dXW/BR73DnE=
+  </data>
+ </layer>
+ <objectgroup name="Objects">
+  <object id="1" name="Player" type="Player" gid="1" x="28" y="820" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+   </properties>
+  </object>
+  <object id="2" name="Djinn" type="Enemy" gid="10" x="98" y="12" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

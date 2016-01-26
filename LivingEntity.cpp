@@ -24,8 +24,7 @@ void LivingEntity::Move(float xPos, float yPos)
 		params->Flip();
 	if (SDL_GetTicks() % 100 / (int)Game::GetInstance()->delta == 0)
 		params->AddFrame();
-	params->AddXPos(xPos);
-	
+	params->AddXPos(xPos);	
 }
 
 void LivingEntity::Accelerate(int aX, int aY)
@@ -49,16 +48,29 @@ void LivingEntity::Accelerate(int aX, int aY)
 		velocity.X = 0;
 	}
 
-	if (!IsCollidingWithTile(position.X + velocity.X, position.Y))
+	int oldX = position.X;
+	if (params->IsFlipped())
+	{
+		oldX++;
+	}
+	else
+	{
+		oldX--;
+	}
+	if (!IsCollidingWithTile((int)position.X + (int)velocity.X, (int)position.Y)) {
 		position.X += velocity.X;
+	}
+	else {
+		this->onCollide(NULL);
+	}
 		
-	if (!IsCollidingWithTile(position.X, position.Y + velocity.Y)) {
+	if (!IsCollidingWithTile(oldX, (int)position.Y + (int)velocity.Y)) {
 		position.Y += velocity.Y;
 		inAir = true;
 	}
 	else if (inAir) {
 		inAir = false;
-		position.Y = getYGravity(position.X, position.Y);
+		position.Y = (float)getYGravity((int)position.X, (int)position.Y);
 	}
 
 	bool isFlipped;
@@ -141,42 +153,63 @@ void LivingEntity::Clear()
 
 bool LivingEntity::IsCollidingWithTile(int x, int y) {
 	
-	for each (TileLayer * layer in collisionLayers) {
+	for each (TileLayer * layer in *collisionLayers) {
 		vector<vector<int>> tiles = layer->GetTiles();
 		int size = layer->GetTileset(0)->tileWidth;
 		int yReal = y - Tools::GetHeight() + ((tiles.size() + 1) * size);
 		int row = yReal / size;
+		int row2 = (yReal + size) / size;
 		int cell = x / size;
-		if (row >= tiles.size() || y >= Tools::GetHeight())
-			return true;
-		if (x >= tiles.size() * size || x < 0 || yReal >= tiles[row].size() * size || yReal < 0)
+		int cell2 = (x + size) / size;
+		if ((unsigned int)row >= tiles.size())
+			return false;
+		if ((unsigned int)x + GetWidth() >= tiles.size() * size || x < 0  || yReal < 0)
 			return true;
 		int x2 = x + size;
 		int y2 = y + size;
 
-		//Check Horitzonal collision
-		if (x + collisionMargin >= cell * size || x2 - collisionMargin <= (1 + cell) * size)
+		if (cell == cell2)
 		{
-			if (tiles[row][cell] != 0 || tiles[row][cell + 1] != 0)
+			if (tiles[row][cell] != 0)
+			{
 				return true;
+			}
+		}
+		else if (row == row2)
+		{
+			if (tiles[row][cell] != 0)
+			{
+				return true;
+			}
+		}
+		//Check Horitzonal collision
+		else if (x + collisionMargin >= cell * size || x2 - collisionMargin <= (1 + cell) * size)
+		{			
+			if (tiles[row][cell] != 0 || tiles[row][cell + 1] != 0)
+			{
+				return true;
+			}			
 		}
 		//Check Vertical collision
-		else if (y >= row * size || y2 <= (1 + row) * size)
+		else if (tiles[row][cell] != 0 || tiles[row + 1][cell] != 0)
 		{
-			if (tiles[row][cell] != 0 || tiles[row + 1][cell] != 0)
-				return true;
+			return true;
 		}
 	}
 	return false;
 }
 
 void LivingEntity::LoadCollisionLayers(vector<TileLayer *> * layers) {
-	this->collisionLayers = *layers;
+	if (collisionLayers == NULL)
+	{
+		collisionLayers = new vector<TileLayer *>();
+	}
+	this->collisionLayers = layers;
 }
 
 int LivingEntity::getYGravity(int x, int y)
 {
-	for each (TileLayer * layer in collisionLayers) {
+	for each (TileLayer * layer in *collisionLayers) {
 		vector<vector<int>> tiles = layer->GetTiles();
 		int size = layer->GetTileset(0)->tileWidth;
 		int yReal = y - Tools::GetHeight() + ((tiles.size() + 1) * size);
@@ -185,6 +218,7 @@ int LivingEntity::getYGravity(int x, int y)
 		int newY = (row)* size - ((tiles.size() + 1) * size) + Tools::GetHeight();
 		return newY + size - 1;
 	}
+	return 0;
 }
 
 bool LivingEntity::CollideWithAnotherEntity(LivingEntity * another)

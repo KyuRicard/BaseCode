@@ -16,7 +16,6 @@ private:
 	int type = 0;
 	void FollowPlayer(Player *);
 	void BeStatic(Player *);
-	void TheIgnored();
 	void MoveALittle();
 	Vector2D playerPos;
 public:
@@ -24,5 +23,6 @@ public:
 	~Enemy();
 	void Update(Player *);
 	static Entity * Create() { return new Enemy(STATIC_ENEMY); }
-	void SetType(int type) { this->type = type; }
+	void SetType(int type);
+	int invulnerable = 0;
 };

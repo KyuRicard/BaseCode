@@ -37,7 +37,7 @@ public:
 			bool collide = ent->CollideWithAnotherEntity(entity);
 			if (collide)
 			{
-				ent->onCollide();
+				ent->onCollide(entity);
 			}
 		}
 	}
@@ -58,19 +58,8 @@ public:
 	void LoadCollisionLayers(std::vector<TileLayer *> *);
 	
 	bool CollideWithAnotherEntity(LivingEntity *);
-	void setOnCollide(void(*cbk)(LivingEntity *))
-	{
-		this->callback = cbk;
-	}
-	void onCollide()
-	{
-		if (callback != nullptr)
-		{
-			callback(this);
-		}
-	}
+	
 private:
-	std::vector<TileLayer *> collisionLayers;	
+	std::vector<TileLayer *> * collisionLayers;	
 	int getYGravity(int x, int y);
-	void(*callback)(LivingEntity *);
 };

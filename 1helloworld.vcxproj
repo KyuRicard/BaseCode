@@ -126,6 +126,7 @@
     <ClInclude Include="libs\base64\base64.h" />
     <ClInclude Include="LivingEntity.h" />
     <ClInclude Include="Loaders.h" />
+    <ClInclude Include="Metaflag.h" />
     <ClInclude Include="ObjectLayer.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="StateManager.h" />

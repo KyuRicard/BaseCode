@@ -27,6 +27,7 @@ private:
 	bool Running;
 	bool takeScreenshot;
 	int r, g, b, a;
+	int level = 1;
 public:
 	double delta;
 	void ToggleFullscreen();
@@ -48,7 +49,17 @@ public:
 	void Render();
 	void Close();
 	void GameOver();
-
+	int GetLevel()
+	{
+		return level;
+	}
+	void SetLevel(int level)
+	{
+		this->level = level;
+	}
+	void LevelUp() {
+		level++;
+	}
 	SDL_Renderer * GetRenderer() { return this->renderer; }
 	SDL_Window * GetWindow() { return this->window; }
 	StateManager * GetManager() { return this->manager; }

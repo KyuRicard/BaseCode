@@ -5,6 +5,7 @@
 #include <ctime>
 #include <iostream>
 #include "Game.h"
+#include "TileLayer.h"
 
 using namespace std;
 using namespace tinyxml2;
@@ -122,9 +123,9 @@ string Tools::GetValueFromNode(string node, XMLElement * root) {
 	return "";
 }
 
-Vector2D Tools::GetTileCoords(Vector2D entityCoords) {	
-	int x = (entityCoords.X - ((int)entityCoords.X % 32)) / 32;
-	int coofY = (entityCoords.Y - Tools::GetHeight() + (91 * 32));
-	int y = (coofY - ((int)coofY % 32)) / 32;
-	return Vector2D(x, y);
+int Tools::ToCell(int y0, TileLayer * layer)
+{
+	int y = y0 - Tools::GetHeight() + ((layer->height) * layer->tileWidth);;
+	int relCell = y / layer->tileHeight;
+	return relCell;
 }

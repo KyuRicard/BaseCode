@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="5">
- <tileset firstgid="1" name="buttonWait" tilewidth="128" tileheight="128">
-  <image source="../img/buttonWait.png" trans="000000" width="128" height="128"/>
- </tileset>
- <tileset firstgid="2" name="Actor3" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="7">
+ <tileset firstgid="1" name="Actor3" tilewidth="32" tileheight="32">
   <image source="../img/Actor3.png" trans="000000" width="384" height="256"/>
  </tileset>
- <tileset firstgid="98" name="Outside_A5" tilewidth="32" tileheight="32">
+ <tileset firstgid="97" name="Outside_A5" tilewidth="32" tileheight="32">
   <image source="../img/Outside_A5.png" trans="000000" width="256" height="512"/>
  </tileset>
  <layer name="Tile Layer 1" width="20" height="15">
@@ -14,20 +11,22 @@
    <property name="HasCollision" value="1"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AU0AscAuLDVMJHgPgUEJ+mEj4DxJeA+DKV8BUamAcA4OlAEQ==
+   eJxjYBgFo2AU0AscBOJDVMKHgfgkEJ+iEj4NxBeB+BKV8GUamAcArkk/wQ==
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object id="1" name="MenuButton" type="Button" gid="1" x="0" y="130"/>
-  <object id="2" name="TestButton" type="Button" gid="1" x="510" y="130"/>
-  <object id="3" name="Player" type="Player" gid="74" x="34" y="349"/>
+  <object id="5" name="Player" type="Player" gid="73" x="1" y="96" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="Tile Layer 2" width="20" height="15">
   <properties>
    <property name="HasCollision" value="0"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AU4AK7gHg3lfAeOrt9OAIArigOnQ==
+   eJxjYBgFo2AU4AI7gXgXlfBuOrt9OAIAkeAOiQ==
   </data>
  </layer>
 </map>

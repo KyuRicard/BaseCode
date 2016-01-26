@@ -44,7 +44,7 @@ void LevelParser::ParseTileLayer(XMLElement * root, vector<Layer *> * layers, ve
 		for (int row = 0; row < width; row++)
 		{
 			vector<int> fila;
-			for (int cell = 0; cell < width; cell++)
+			for (int cell = 0; cell < height; cell++)
 			{
 				fila.push_back(ids[row * width + cell]);
 			}
@@ -54,7 +54,7 @@ void LevelParser::ParseTileLayer(XMLElement * root, vector<Layer *> * layers, ve
 		TileLayer * tl = new TileLayer(width, height, tileWidth, tileHeight, *tilesets);
 		bool hasCollision;
 		for (XMLElement * child = e->FirstChildElement("properties")->FirstChildElement("property"); child != NULL; child = child->NextSiblingElement("property")) {
-			hasCollision = atoi(Tools::GetValueFromNode("HasCollision", child).c_str());
+			hasCollision = (bool)(atoi(Tools::GetValueFromNode("HasCollision", child).c_str()));
 		}
 		tl->SetCollision(hasCollision);
 		tl->SetTileIDs(layer);
@@ -77,7 +77,7 @@ void LevelParser::ParseObjectLayer(XMLElement * root, vector<Layer *> * layers, 
 			int height = e->IntAttribute("height");
 			//realY = y - Tools::GetHeight() + (90 * 32);
 			//y = realY + Tools::GetHeight() - (90 * 32)
-			int y = e->IntAttribute("y") + Tools::GetHeight() - (mapHeight * tileHeight) - height;
+			int y = e->IntAttribute("y") + Tools::GetHeight() - ((mapHeight + 1) * tileHeight) - height;
 			
 			int gid = e->IntAttribute("gid");
 
