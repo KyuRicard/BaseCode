@@ -84,7 +84,7 @@ void Player::DrawFrame()
 	img.h = params->GetHeight();
 
 	draw.x = (int)position.X - (int)TheCam->GetPosition()->X;
-	draw.y = (int)position.Y;
+	draw.y = (int)position.Y - (int)TheCam->GetPosition()->Y;
 	draw.w = params->GetWidth();
 	draw.h = params->GetHeight();
 

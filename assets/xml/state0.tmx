@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="30" height="30" tilewidth="32" tileheight="32" nextobjectid="4">
+ <tileset firstgid="1" name="Characters" tilewidth="32" tileheight="32" tilecount="21" columns="3">
+  <image source="../img/Characters.png" width="96" height="224"/>
+ </tileset>
+ <tileset firstgid="22" name="Outside_A5" tilewidth="32" tileheight="32" tilecount="128" columns="8">
+  <image source="../img/Outside_A5.png" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="150" name="tuto1" tilewidth="400" tileheight="200" tilecount="1" columns="1">
+  <image source="../img/tuto1.png" width="400" height="200"/>
+ </tileset>
+ <tileset firstgid="151" name="tuto2" tilewidth="400" tileheight="200" tilecount="1" columns="1">
+  <image source="../img/tuto2.png" width="400" height="200"/>
+ </tileset>
+ <tileset firstgid="152" name="tuto3" tilewidth="400" tileheight="200" tilecount="1" columns="1">
+  <image source="../img/tuto3.png" width="400" height="200"/>
+ </tileset>
+ <layer name="Collision" width="30" height="30">
+  <properties>
+   <property name="HasCollision" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt0MENwCAIBVCm8NoJnMf9N+mlJkokAiomhZ/8m/JEgIiHJOO27o2EG65XN3+1dDPqaRd7M5f7rupq9sB3JH+ShOe55myW1qXeIf1n63hzI31K0z9m536jGQX2G6M+qFqXOsudseJSPemu5gVLnBiR
+  </data>
+ </layer>
+ <objectgroup name="Objects">
+  <object id="1" name="Player" type="Player" gid="1" x="912" y="91" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+   </properties>
+  </object>
+  <object id="2" name="Djinn" type="Enemy" gid="10" x="749" y="810" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="3" name="Level 1" type="Metaflag" gid="13" x="878" y="818" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="BG" width="30" height="30">
+  <properties>
+   <property name="HasCollision" value="0"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIKhCWYQqW46Hrlp1HDIKBhRwBOKR7K91HAHIf8QYy85YTJq78i2F5c9o/aO2juc7SUEAGpLGXE=
+  </data>
+ </layer>
+</map>

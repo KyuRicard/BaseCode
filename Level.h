@@ -12,6 +12,7 @@ private:
 	std::vector<Layer *> layers;
 public:
 	Level(std::vector<Tileset>, std::vector<Layer *>);
+	~Level();
 	void Update();
 	void Render();
 

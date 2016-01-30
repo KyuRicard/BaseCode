@@ -40,8 +40,11 @@ void AudioManager::PlaySound(string sound)
 
 void AudioManager::PlayMusic(string music)
 {
+	if (current == music)
+		return;
 	StopMusic();
 	Mix_PlayMusic(musics.at(music), -1);
+	current = music;
 }
 
 void AudioManager::StopMusic()

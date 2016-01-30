@@ -2,7 +2,7 @@
 #include "Game.h"
 #include "LivingEntity.h"
 
-class Metaflag : InertEntity
+class Metaflag : LivingEntity
 {
 public:
 	Metaflag()
@@ -11,6 +11,7 @@ public:
 			if (Player * pl = dynamic_cast<Player *>(other))
 			{
 				TheGame->LevelUp();
+				((LivingEntity *)mf)->Die();
 			}
 		}));
 	}

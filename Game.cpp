@@ -64,6 +64,7 @@ bool Game::Init(const char * title, int xpos, int ypos, int width, int height, b
 	
 	Audio->LoadSound("button");
 	Audio->LoadSound("nazgul");
+	Audio->LoadSound("click");
 
 	EntityCreator->Register("Button", &Button::Create);
 	EntityCreator->Register("Inert", &InertEntity::Create);
@@ -104,6 +105,7 @@ void Game::Update()
 	{
 		Tools::takeScreenShot(width, height);
 		takeScreenshot = false;
+		Audio->PlaySound("click");
 	}
 }
 
@@ -122,4 +124,10 @@ void Game::Close()
 void Game::GameOver()
 {
 	manager->ChangeState(new StateMenu());
+	level = 1;
+}
+
+void Game::LevelUp() {
+	level++;
+	manager->ChangeState(new StateGame());
 }

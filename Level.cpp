@@ -8,6 +8,11 @@ Level::Level(vector<Tileset> tilesets, vector<Layer *> layers) {
 	this->layers = layers;
 }
 
+Level::~Level() {
+	tilesets.clear();
+	layers.clear();
+}
+
 void Level::Update() {
 	for each (Layer * ly in layers) {
 		ly->Update();

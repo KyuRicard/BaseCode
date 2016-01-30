@@ -1,46 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="30" height="30" tilewidth="32" tileheight="32" nextobjectid="3">
- <tileset firstgid="1" name="Characters" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="90" height="90" tilewidth="32" tileheight="32" nextobjectid="8">
+ <tileset firstgid="1" name="Terrain" tilewidth="32" tileheight="32" tilecount="128" columns="8">
+  <image source="../img/Outside_A5.png" trans="000000" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="129" name="Actor3" tilewidth="32" tileheight="32" tilecount="96" columns="12">
+  <image source="../img/Actor3.png" trans="000000" width="384" height="256"/>
+ </tileset>
+ <tileset firstgid="225" name="Monster1" tilewidth="32" tileheight="32" tilecount="96" columns="12">
+  <image source="../img/Monster1.png" width="384" height="256"/>
+ </tileset>
+ <tileset firstgid="321" name="Characters" tilewidth="32" tileheight="32" tilecount="21" columns="3">
   <image source="../img/Characters.png" width="96" height="224"/>
  </tileset>
- <tileset firstgid="22" name="Outside_A5" tilewidth="32" tileheight="32">
-  <image source="../img/Outside_A5.png" width="256" height="512"/>
- </tileset>
- <layer name="BG" width="30" height="30">
+ <layer name="BG" width="90" height="90">
   <properties>
    <property name="HasCollision" value="0"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztw8EJAAAIBKAbumfDN0YUCiYAAHxQS1s9ewBDX4HZ
+   eJzt00EKABAQBVDXxP3vQclGJBtS79Ws5/ebCQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoIl10mTyy1AfW/XJmbHH2/cYh509j784M/sHHQLsFTDECjI=
   </data>
  </layer>
- <layer name="Collision" width="30" height="30">
-  <properties>
-   <property name="HasCollision" value="1"/>
-  </properties>
-  <data encoding="base64" compression="zlib">
-   eJwTY8APxAjIkwvEiMCjYBSMglEwCkgDulA8EHbSy250+wjZS6q7yPEHuh5Sw4ScMCRkJ7HhQmnc0Tv+R8EoIAeEI+HhCKjpP2xmhDNQ3w5sWB4Nk2svLrXEmkGJvbgwLe2lFAAAP0YV6A==
-  </data>
- </layer>
- <layer name="FG" width="30" height="30">
-  <properties>
-   <property name="HasCollision" value="0"/>
-  </properties>
-  <data encoding="base64" compression="zlib">
-   eJztzTERAAAIA7EaxL8dFhYMdEruuvYTAICuubU/dHV1dXW/BR73DnE=
-  </data>
- </layer>
- <objectgroup name="Objects">
-  <object id="1" name="Player" type="Player" gid="1" x="28" y="820" width="32" height="32">
+ <objectgroup draworder="index" name="Objectes">
+  <object id="3" name="Player" type="Player" gid="201" x="2" y="2721" width="32" height="32">
    <properties>
-    <property name="CollisionMargin" value="5"/>
+    <property name="CollisionMargin" value="10"/>
    </properties>
   </object>
-  <object id="2" name="Djinn" type="Enemy" gid="10" x="98" y="12" width="32" height="32">
+  <object id="4" name="Genius" type="Enemy" gid="297" x="304" y="2718" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="0"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="6" name="Genius2" type="Enemy" gid="330" x="1385" y="2820" width="32" height="32">
    <properties>
     <property name="CollisionMargin" value="5"/>
     <property name="Type" value="2"/>
    </properties>
   </object>
+  <object id="7" name="Level 2" type="Metaflag" gid="335" x="2079" y="2241" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="0"/>
+   </properties>
+  </object>
  </objectgroup>
+ <layer name="Collision" width="90" height="90">
+  <properties>
+   <property name="HasCollision" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1EEKwjAQBdCuPaMbdaWurAfw6ppFYRiSSkVaI+/BgBhtJj9phgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACArey2bgDokrsDWMKdwb9xpunZPnx2lr9r//4nmxhnxg6vOlbqtEJfS/xqtlHJuZXn+VWXSl1X7G+XavKL2eYc43m8De08y9hYqfvC+cvz495M/cQ+Wnn2JOcY19zKcq5yzrX3Ie9l/M/Uz5rvxRpylveZsU9yrr0PeS9rc5bv5s5ub+e6rOsRKq85juVMH5XKOdf2Ks/RyrnId0avd8cTnOI8xw==
+  </data>
+ </layer>
 </map>

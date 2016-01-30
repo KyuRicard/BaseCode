@@ -31,16 +31,7 @@ public:
 	virtual void Draw();
 	virtual void DrawFrame();
 	virtual void Update();
-	static void CheckCollisions(LivingEntity * ent, std::vector<Entity *> entitats) {
-		for each (LivingEntity * entity in entitats)
-		{
-			bool collide = ent->CollideWithAnotherEntity(entity);
-			if (collide)
-			{
-				ent->onCollide(entity);
-			}
-		}
-	}
+	
 	void Clear();
 
 	std::string GetId() { return params->GetId(); }
@@ -55,10 +46,7 @@ public:
 	int GetRow() { return params->GetRow(); }
 
 	bool IsCollidingWithTile(int, int);
-	void LoadCollisionLayers(std::vector<TileLayer *> *);
-	
-	bool CollideWithAnotherEntity(LivingEntity *);
-	
+	void LoadCollisionLayers(std::vector<TileLayer *> *);	
 private:
 	std::vector<TileLayer *> * collisionLayers;	
 	int getYGravity(int x, int y);

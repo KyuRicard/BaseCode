@@ -30,11 +30,15 @@ void TileLayer::Render()
 	int lastRow = (int)(TheCam->GetPosition()->X + Tools::GetWidth()) / tileWidth;
 	int firstCell = Tools::ToCell((int)TheCam->GetPosition()->Y, this);
 	int lastCell = Tools::ToCell((int)(TheCam->GetPosition()->Y + Tools::GetHeight()), this);
+	if (firstCell < 0)
+		firstCell == 0;
 	lastRow++;
 	for (int row = firstRow; row < lastRow; row++) 
-	{
+	{		
 		for (int tile = firstCell; tile < lastCell; tile++)
 		{		
+			if (tile >= tileIDs.size())
+				continue;
 			if ((unsigned int)row >= tileIDs[tile].size())
 				continue;
 			int current = tileIDs[tile][row];
@@ -43,7 +47,7 @@ void TileLayer::Render()
 			
 			int x1 = (row * tileWidth);
 			int x2 = x1 + tileWidth;
-			int y1 = Tools::GetHeight() - (height - tile) * tileHeight;
+			int y1 = Tools::GetHeight() - (height - tile) * tileHeight - TheCam->GetPosition()->Y;
 			int y2 = y1 + tileHeight;
 
 			if (y1 < 0 && y2 < 0)

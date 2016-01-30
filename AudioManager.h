@@ -29,4 +29,5 @@ private:
 	std::map<std::string, Mix_Music *> musics;
 	std::string path = "assets/sound/";
 	static AudioManager * instance;
+	std::string current;
 };

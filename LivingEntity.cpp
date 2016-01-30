@@ -221,20 +221,6 @@ int LivingEntity::getYGravity(int x, int y)
 	return 0;
 }
 
-bool LivingEntity::CollideWithAnotherEntity(LivingEntity * another)
-{
-	if (another == NULL || params->GetId() == another->params->GetId())
-	{
-		return false;
-	}
-	Vector2D aMin = Vector2D(position.X + collisionMargin, position.Y);
-	Vector2D aMax = Vector2D(position.X + GetWidth() - collisionMargin, position.Y + GetHeight());
-	Vector2D bMin = Vector2D(another->position.X + another->collisionMargin, another->position.Y);
-	Vector2D bMax = Vector2D(another->position.X + another->GetWidth() - another->collisionMargin, another->position.Y + another->GetHeight());
-
-	return (aMin.X < bMax.X) && (aMax.X > bMin.X) && (aMin.Y < bMax.Y) && (aMax.Y > bMin.Y);
-}
-
 void LivingEntity::Die()
 {
 	this->position.X = -150;
