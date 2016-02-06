@@ -11,7 +11,7 @@ AudioManager::AudioManager()
 	{
 		cout << Mix_GetError() << endl;
 	}
-	Mix_VolumeMusic(32);
+	Mix_VolumeMusic(16);
 }
 
 AudioManager::~AudioManager()
@@ -19,8 +19,15 @@ AudioManager::~AudioManager()
 	Mix_CloseAudio();
 }
 
+void AudioManager::SetVolume(int volume)
+{
+	Mix_Volume(-1, volume);
+}
+
 void AudioManager::LoadSound(string soundFile)
 {
+	if (sounds[soundFile] != NULL)
+		return;
 	string finalPath = string(path + soundFile + ".wav");
 	Mix_Chunk * sound = Mix_LoadWAV(finalPath.c_str());
 	sounds[soundFile] = sound;
@@ -28,6 +35,8 @@ void AudioManager::LoadSound(string soundFile)
 
 void AudioManager::LoadMusic(string musicFile)
 {
+	if (musics[musicFile] != NULL)
+		return;
 	string finalPath = string(path + musicFile + ".wav");
 	Mix_Music * music = Mix_LoadMUS(finalPath.c_str());
 	musics[musicFile] = music;

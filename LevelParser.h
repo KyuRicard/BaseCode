@@ -9,7 +9,7 @@
 #include <iostream>
 #include <vector>
 #include <zlib.h>
-#include "libs\base64\base64.h"
+#include <base64.h>
 
 class LevelParser
 {
@@ -19,4 +19,5 @@ private:
 	static void ParseObjectLayer(tinyxml2::XMLElement *, std::vector<Layer *> *, std::vector<Tileset> *, int, int);
 public:	
 	static Level * ParseLevel(std::string);
+	static bool CheckLevel(std::string);
 };

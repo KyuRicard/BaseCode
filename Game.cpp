@@ -1,9 +1,10 @@
 #include "Game.h"
-#include "StateManager.h"
 #include "EntityFactory.h"
 #include "AllEntities.hpp"
 #include "AudioManager.h"
 #include "Metaflag.h"
+#include "GameStates.hpp"
+#include "LevelParser.h"
 
 Game * Game::joc = 0;
 
@@ -123,11 +124,19 @@ void Game::Close()
 
 void Game::GameOver()
 {
-	manager->ChangeState(new StateMenu());
+	manager->ChangeState(new StateGameOver());
 	level = 1;
 }
 
 void Game::LevelUp() {
 	level++;
-	manager->ChangeState(new StateGame());
+	stringstream ss;
+	ss << "assets/xml/state" << level << ".tmx";
+	string tmp;
+	ss >> tmp;
+	bool exists = LevelParser::CheckLevel(tmp);
+	if (exists)
+		manager->ChangeState(new StateGame());
+	else
+		manager->ChangeState(new StateWin());
 }

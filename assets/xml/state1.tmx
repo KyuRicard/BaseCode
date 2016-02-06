@@ -38,7 +38,7 @@
     <property name="Type" value="2"/>
    </properties>
   </object>
-  <object id="7" name="Level 2" type="Metaflag" gid="335" x="2079" y="2241" width="32" height="32">
+  <object id="7" name="Level 2" type="Metaflag" gid="335" x="2080" y="2614" width="32" height="32">
    <properties>
     <property name="CollisionMargin" value="0"/>
    </properties>
@@ -49,7 +49,7 @@
    <property name="HasCollision" value="1"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1EEKwjAQBdCuPaMbdaWurAfw6ppFYRiSSkVaI+/BgBhtJj9phgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACArey2bgDokrsDWMKdwb9xpunZPnx2lr9r//4nmxhnxg6vOlbqtEJfS/xqtlHJuZXn+VWXSl1X7G+XavKL2eYc43m8De08y9hYqfvC+cvz495M/cQ+Wnn2JOcY19zKcq5yzrX3Ie9l/M/Uz5rvxRpylveZsU9yrr0PeS9rc5bv5s5ub+e6rOsRKq85juVMH5XKOdf2Ks/RyrnId0avd8cTnOI8xw==
+   eJzt1E0KwjAQBtCue0Y36kpdWQ/Qq2sWhWFIKgr2R96DATHaTL4k7ToAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4NcO4XO/Whf/6fD+J6sYZsaOrzpV6rxAX5/YarZRybmV5+VV10rdFuyvTzXZYrY5x3ge7107zzI2VOrx4fzl+XFvpn5iH6089yTnGNfcynKucs61+5D3Mv5n6mfJe7GEnOVjZuybnGv3Ie9lbc7y3dzZ3du5LusaQ+U1x7Gc6VipnHNtr/IcrZyL/M7Y67vjCcA1PJ8=
   </data>
  </layer>
 </map>

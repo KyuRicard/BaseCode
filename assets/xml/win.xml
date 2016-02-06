@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<state>
+	<textures>				
+		<texture file="win.png" ID="Win"/>
+		<texture file="retButton2.png" ID="retButton"/>
+	</textures>
+	<objects>
+		<object type="Inert" x="0" y="0" width="400" height="400" row="0" texture="Win" numFrames="0"/>
+		<object type="Button" x="100" y="350" width="300" height="100" row="0" texture="retButton" numFrames="0" callback="1"/>
+	</objects>
+</state>

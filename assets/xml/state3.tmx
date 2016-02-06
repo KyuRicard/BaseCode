@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="90" height="90" tilewidth="32" tileheight="32" nextobjectid="16">
+ <tileset firstgid="1" name="Terrain" tilewidth="32" tileheight="32" tilecount="128" columns="8">
+  <image source="../img/Outside_A5.png" trans="000000" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="129" name="Actor3" tilewidth="32" tileheight="32" tilecount="96" columns="12">
+  <image source="../img/Actor3.png" trans="000000" width="384" height="256"/>
+ </tileset>
+ <tileset firstgid="225" name="Monster1" tilewidth="32" tileheight="32" tilecount="96" columns="12">
+  <image source="../img/Monster1.png" width="384" height="256"/>
+ </tileset>
+ <tileset firstgid="321" name="Characters" tilewidth="32" tileheight="32" tilecount="21" columns="3">
+  <image source="../img/Characters.png" width="96" height="224"/>
+ </tileset>
+ <layer name="Collision" width="90" height="90">
+  <properties>
+   <property name="HasCollision" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1DEOgyAUgGGu4NC7dGD1Ih6h9x+6OBgCDTXwIsn3JW8TxT9KSgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcvc9hLp1j6BxD5xg6x9A5hs4xdI6hcwydY6zUOQc9Z7/MKKt0zimu8wwrdM5J59lyut+59f+/immtaZ0dv9bXfIr5d+8jz6+asvHI77m30az1T1FrvErn48b9eteMvK7VuKfz9qBp7WnEXsvz5Dgn6t2+dgEb+g==
+  </data>
+ </layer>
+ <objectgroup draworder="index" name="Objectes">
+  <object id="3" name="Player" type="Player" gid="201" x="29" y="2830" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="10"/>
+   </properties>
+  </object>
+  <object id="4" name="Genius" type="Enemy" gid="297" x="696" y="2837" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="0"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="6" name="Genius" type="Enemy" gid="330" x="1580.33" y="2840" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="7" name="Level 2" type="Metaflag" gid="335" x="2803" y="2838" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="0"/>
+   </properties>
+  </object>
+  <object id="8" name="Genius" type="Enemy" gid="330" x="943" y="2840" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="10" name="Bat" type="Enemy" gid="324" x="2186" y="2836" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="11" name="Bat" type="Enemy" gid="324" x="232" y="2677" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="12" name="Bat" type="Enemy" gid="324" x="2324" y="2811" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="13" name="Bat" type="Enemy" gid="324" x="2660" y="2845" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="14" name="Bat" type="Enemy" gid="324" x="455" y="2836" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="15" name="Bat" type="Enemy" gid="324" x="1313" y="1125" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="BG" width="90" height="90">
+  <properties>
+   <property name="HasCollision" value="0"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1DsOgzAQRVEWlS1E7Cf7L9JaCPKRYPCzz5GmccPoGlgWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAcazNcZz0YznHUV/PzaV3n7taz3HN153+eN1rrVo99R219BZ3rpHfucac9iZ173++bhP1T3oUR3NV51jusapz+vaTsm9g59X86yq4J+yfSmCSvzfTk0cynswQJnX8975nONXSuMXvn585UeAN/z14M
+  </data>
+ </layer>
+</map>

@@ -1,5 +1,5 @@
 #include "LevelParser.h"
-#include "Loaders.h"
+#include "TextureManager.h"
 #include "Tools.h"
 #include "EntityFactory.h"
 #include "Enemy.h"
@@ -75,8 +75,7 @@ void LevelParser::ParseObjectLayer(XMLElement * root, vector<Layer *> * layers, 
 			int x = e->IntAttribute("x");
 			int width = e->IntAttribute("width");
 			int height = e->IntAttribute("height");
-			//realY = y - Tools::GetHeight() + (90 * 32);
-			//y = realY + Tools::GetHeight() - (90 * 32)
+
 			int y = e->IntAttribute("y") + Tools::GetHeight() - ((mapHeight + 1) * tileHeight) - height;
 			
 			int gid = e->IntAttribute("gid");
@@ -114,6 +113,7 @@ Level * LevelParser::ParseLevel(string xml) {
 	doc.LoadFile(xml.c_str());
 	if (doc.Error()) {
 		cout << "Error XML: " << doc.ErrorName() << endl;
+		return NULL;
 	}
 	XMLElement * map = doc.FirstChildElement("map");
 	int mapWidth = map->IntAttribute("width");
@@ -130,4 +130,16 @@ Level * LevelParser::ParseLevel(string xml) {
 
 	Level * lvl = new Level(tilesets, layers);
 	return lvl;
+}
+
+bool LevelParser::CheckLevel(string level)
+{
+	XMLDocument doc;
+	doc.LoadFile(level.c_str());
+	if (doc.Error()) {
+		return false;
+	}
+	else {
+		return true;
+	}
 }

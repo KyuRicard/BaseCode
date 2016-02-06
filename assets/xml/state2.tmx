@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="90" height="90" tilewidth="32" tileheight="32" nextobjectid="16">
+ <tileset firstgid="1" name="Terrain" tilewidth="32" tileheight="32" tilecount="128" columns="8">
+  <image source="../img/Outside_A5.png" trans="000000" width="256" height="512"/>
+ </tileset>
+ <tileset firstgid="129" name="Actor3" tilewidth="32" tileheight="32" tilecount="96" columns="12">
+  <image source="../img/Actor3.png" trans="000000" width="384" height="256"/>
+ </tileset>
+ <tileset firstgid="225" name="Monster1" tilewidth="32" tileheight="32" tilecount="96" columns="12">
+  <image source="../img/Monster1.png" width="384" height="256"/>
+ </tileset>
+ <tileset firstgid="321" name="Characters" tilewidth="32" tileheight="32" tilecount="21" columns="3">
+  <image source="../img/Characters.png" width="96" height="224"/>
+ </tileset>
+ <layer name="Collision" width="90" height="90">
+  <properties>
+   <property name="HasCollision" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt2cuuwiAQgGHX3fk+7n0f339hTNqkQS5TYOgM/F9C4rl4xP9gS/XxAAAAAAAAAAAAAAAAAAAAADCL92lAxzsy0FesMa37yfWldRtpW1q3qe1Ma7mWxrSW69GZ1nK07mc7jZiWxq99QIb1K9OrRW3j2dc1a06fxde3x3WdauXpOOqh+4z7LYvdZ+xszWyNj3VsbX4zNf7xMEfPrK+Hzz688vLa89rZ23GupXPr3LfEbcnjejuv1HTOzT3sVfo6RuP9Pm+dR899yzzmbJ3vnr/nvgcPnUssz+3Qs7OF52NxTj/S4/OVzlf2Dqto2W9ATus6pbSmV/tfaV8PxnpbPH5qG3Xd7eEcqmlEZ0/7FS3anWuvJSx+7tRCs3PLNRud5Xp0nqU3ncew0jkUdvbee8R5MPa90v6CzmOkOnvt7bWzxTnnWO1cUpqztefkubNkWGFtPlruXv8rdJaufc0OK3Su0XtfQ+c4OuvT2KvT+R+ddWzBCDuHPw/vK7Fy59RarVnPpd6rds41nP24cWWf2zLnUsPazrk1ba2zxu+eSRrOuJ4/idtX7iclfX91luNzqq3mPO5+H7u289X7SNr27Hz+W9qfF+TW8nMfR+cnQ2V8Aff35uQ=
+  </data>
+ </layer>
+ <objectgroup draworder="index" name="Objectes">
+  <object id="3" name="Player" type="Player" gid="201" x="153" y="2818" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="10"/>
+   </properties>
+  </object>
+  <object id="4" name="Genius" type="Enemy" gid="297" x="696" y="2813" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="0"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="6" name="Genius" type="Enemy" gid="330" x="1276.33" y="2818" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="7" name="Level 2" type="Metaflag" gid="335" x="13" y="2818" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="0"/>
+   </properties>
+  </object>
+  <object id="8" name="Genius" type="Enemy" gid="330" x="1435" y="2818" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="10" name="Bat" type="Enemy" gid="324" x="1654" y="2354" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="11" name="Bat" type="Enemy" gid="324" x="2090" y="2399" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="12" name="Bat" type="Enemy" gid="324" x="1988" y="2399" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="13" name="Bat" type="Enemy" gid="324" x="2486" y="2833" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="14" name="Bat" type="Enemy" gid="324" x="167" y="1444" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+  <object id="15" name="Bat" type="Enemy" gid="324" x="1313" y="1125" width="32" height="32">
+   <properties>
+    <property name="CollisionMargin" value="5"/>
+    <property name="Type" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="BG" width="90" height="90">
+  <properties>
+   <property name="HasCollision" value="0"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt29EKgjAAhlEfqnfw/d+om4SMqWXudxvngBchM/g2Ma2mCQAAAAAAAAAAAAAAAABg33zwmmvMha3G8dFhJNY1I7Ku76H7PXSHeh6vjbp0ztA5Q+eMGp1rPUvqmfWcoXOGzhk6Z+icoXPGmc7m5nc6Z+icoXOGzhk6Z+icoXNGK51Hn7tk571xOl8z5mjc0TF7/96g1c6l3/nq/P+4931bjXvu3Wvn3lq32Hnxbe8e5qHlzovSf1/ONC7tS81HD50/bTXdatzCOdBj5zOOeuo8Bp0zdM7QOUPnjJY6j0zntVqfp3Veq3X/ovNaa52vfq9WOtcy+nX+bk+CmEpt
+  </data>
+ </layer>
+</map>

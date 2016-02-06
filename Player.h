@@ -15,9 +15,11 @@ public:
 	void Load(EntityParams *);
 	void Update();
 	void Jump();
+	void Damage();
 	bool InBounds(LivingEntity *);
 	void DrawFrame();
 	void onVoid();
+	void unStuck();
 	void SetJump(float jump)
 	{
 		salt = jump;

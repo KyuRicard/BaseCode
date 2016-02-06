@@ -6,13 +6,13 @@
  <tileset firstgid="22" name="Outside_A5" tilewidth="32" tileheight="32" tilecount="128" columns="8">
   <image source="../img/Outside_A5.png" width="256" height="512"/>
  </tileset>
- <tileset firstgid="150" name="tuto1" tilewidth="400" tileheight="200" tilecount="1" columns="1">
+ <tileset firstgid="150" name="tuto1" tilewidth="32" tileheight="32" tilecount="72" columns="12">
   <image source="../img/tuto1.png" width="400" height="200"/>
  </tileset>
- <tileset firstgid="151" name="tuto2" tilewidth="400" tileheight="200" tilecount="1" columns="1">
+ <tileset firstgid="222" name="tuto2" tilewidth="32" tileheight="32" tilecount="72" columns="12">
   <image source="../img/tuto2.png" width="400" height="200"/>
  </tileset>
- <tileset firstgid="152" name="tuto3" tilewidth="400" tileheight="200" tilecount="1" columns="1">
+ <tileset firstgid="294" name="tuto3" tilewidth="32" tileheight="32" tilecount="72" columns="12">
   <image source="../img/tuto3.png" width="400" height="200"/>
  </tileset>
  <layer name="Collision" width="30" height="30">
@@ -46,7 +46,7 @@
    <property name="HasCollision" value="0"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIKhCWYQqW46Hrlp1HDIKBhRwBOKR7K91HAHIf8QYy85YTJq78i2F5c9o/aO2juc7SUEAGpLGXE=
+   eJzt0Mk3VmEcwPH3XTSxKg2rUJ3TgFTI0Kg5GZsoFMrQwJ9FZYfYEe2k2in8D6VhpRSfRZ3jdOi6zl153985n919ft/nubHY8vOJz8zyha984/sK3/+dbnp4xnNe0BtwZunM8YOfzPOL3ywEnOujnwFeMshQiO6GeCy2kU1sZgsppMb/f26YEV4xyhivQ3S32r+NNLazg53sCuiO84YJ3vKO9yG6u+1PJ4NM9rCXfQHdST7wkSmmmQnR/Xf26x3gIIfIIpscDpPLEY5yLOBuYSbPrnwKOE4hRRRTwglOcorTEXbP2HWWUs5xngtc5BKXucJVyiLsXrOrnAoqqaKaGq5zg5vc4naE3Vq76rjDXeppoJF73KeJZloi7D6w6yGttNFOB494zBOe0klXhN3kJMaU/ZHI3SjuEfSe1XTX8k+S3cTurtRJdpPd9dwNmkU5vFI+
   </data>
  </layer>
 </map>

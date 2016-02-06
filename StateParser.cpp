@@ -1,5 +1,5 @@
 #include "StateParser.h"
-#include "Loaders.h"
+#include "TextureManager.h"
 #include "EntityFactory.h"
 #include "AllEntities.hpp"
 

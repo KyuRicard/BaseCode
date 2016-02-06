@@ -23,6 +23,7 @@ public:
 	void PlayMusic(std::string);
 	void StopMusic();
 	void StopAudio();
+	void SetVolume(int);
 private:
 	AudioManager();
 	std::map<std::string, Mix_Chunk *> sounds;

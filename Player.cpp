@@ -27,11 +27,12 @@ Player::Player() : LivingEntity()
 				p->lives--;
 				if (p->lives == 0)
 				{
+					Audio->SetVolume(64);
 					Audio->PlaySound("nazgul");
 					TheGame->GameOver();
 				}
-				p->invulnerable = 120;
-				p->Jump();
+				p->invulnerable = 180;
+				p->Damage();
 				another->onCollide(p);
 			}
 		}
@@ -42,6 +43,19 @@ Player::Player() : LivingEntity()
 			another->onCollide(p);
 		}
 	}));
+}
+
+void Player::Damage()
+{
+	velocity.Y = salt;
+	Audio->PlaySound("damage");
+}
+
+void Player::unStuck()
+{
+	if (LivingEntity::IsCollidingWithTile(position.X, position.Y)) {
+		position.Y -= params->GetHeight();
+	}
 }
 
 void Player::Load(EntityParams * params)
@@ -70,8 +84,10 @@ bool Player::InBounds(LivingEntity * entitat)
 
 void Player::Jump()
 {
-	if (!inAir)
+	if (!inAir) {
 		velocity.Y = salt;
+		Audio->PlaySound("jump");
+	}		
 }
 
 void Player::DrawFrame()
@@ -101,6 +117,7 @@ void Player::onVoid()
 	lives--;
 	if (lives == -1)
 	{
+		Audio->SetVolume(64);
 		Audio->PlaySound("nazgul");
 		TheGame->GameOver();
 	}

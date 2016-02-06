@@ -1,6 +1,6 @@
 #include "TileLayer.h"
 #include "Tools.h"
-#include "Loaders.h"
+#include "TextureManager.h"
 #include "Game.h"
 #include "GameStates.h"
 #include "Camera.h"
@@ -31,7 +31,7 @@ void TileLayer::Render()
 	int firstCell = Tools::ToCell((int)TheCam->GetPosition()->Y, this);
 	int lastCell = Tools::ToCell((int)(TheCam->GetPosition()->Y + Tools::GetHeight()), this);
 	if (firstCell < 0)
-		firstCell == 0;
+		firstCell = 0;
 	lastRow++;
 	for (int row = firstRow; row < lastRow; row++) 
 	{		

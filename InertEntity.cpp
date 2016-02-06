@@ -1,6 +1,6 @@
 #include "InertEntity.h"
 #include "Game.h"
-#include "Loaders.h"
+#include "TextureManager.h"
 
 InertEntity::InertEntity()
 {

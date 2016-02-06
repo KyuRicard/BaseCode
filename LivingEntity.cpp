@@ -1,6 +1,6 @@
 #include "LivingEntity.h"
 #include <SDL.h>
-#include "Loaders.h"
+#include "TextureManager.h"
 #include "Game.h"
 #include <cmath>
 #include "Camera.h"
